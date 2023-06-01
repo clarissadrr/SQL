@@ -1,3 +1,7 @@
+-- this SQL project is a database that includes 3 tables: movies, genre and director. The project allows you to search, filter and sort 
+movies based on their genre and director. it provides as well a comprehensive view of relevant information  
+that is easily accesible an organized.
+
 
 CREATE TABLE MOVIES (Movie_id INTEGER PRIMARY KEY,Movie_Name "text",Movie_description "TEXT",Movie_released_year INTEGER,Box_office_gross INTEGER);
 
