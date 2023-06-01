@@ -1,10 +1,4 @@
 
-- Create a makeup store inventory
-
-/** LIST OF ITEMS 
-Primer, moisturizer,foundation, concealer, blush, bronzer, contour, eyeshadow, eyeliner, mascara, brow tint,lip liner, lipstick, lipgloss, setting spray  
-**/ 
-
 CREATE TABLE products (id INTEGER Primary Key,name TEXT,price INTEGER,shade TEXT, stock INTEGER);
 
 
