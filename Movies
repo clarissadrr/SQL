@@ -1,7 +1,4 @@
 
-
-
-
 CREATE TABLE MOVIES (Movie_id INTEGER PRIMARY KEY,Movie_Name "text",Movie_description "TEXT",Movie_released_year INTEGER,Box_office_gross INTEGER);
 
 INSERT INTO MOVIES VALUES (1,"The Shawshank Redemption", "Two imprisoned men bond over a number of years",1994,28300000);
@@ -29,15 +26,24 @@ INSERT INTO Director VALUES (4,"Peter Jackson",16,"New Zealand");
 INSERT INTO Director VALUES (5,"Quentin Tarantino",10,"American");
 INSERT INTO Director VALUES (6,"Robert Zemeckis",22,"American");
 
+
+- display of the name of the movie, its released year and genre by joining the 2 tables.
+
 SELECT m.movie_name,m.movie_released_year,g.genre_name
 FROM Movies m
 JOIN genre g
 ON m.movie_id=g.genre_id;
 
+- display of the name of the movie, a brief description and their director name by joining the 2 tables.
+
 SELECT m.movie_name,m.movie_description,d.name
 FROM movies m
 JOIN director d 
 ON m.movie_id=d.director_id;
+
+- Display of the movie, its released year , genre and the directors nationality by joining the 3 tables
+ordering from the oldest movie released to the newest movie released.
+
 
 SELECT m.movie_name,m.movie_released_year,g.genre_name,d.name,d.nationality
 FROM movies m 
@@ -47,8 +53,12 @@ JOIN director d
 ON m.movie_id=d.director_id
 ORDER BY movie_released_year ASC;
 
+-- Display only directors with American Nationality.
 
 SELECT name,nationality FROM Director WHERE nationality="American";
+
+-- Display of the name of the movie, amount of the box office and the directors name by joining the 3 tables
+ordering by most revenue to least revenue.
 
 SELECT m.movie_name,m.Box_office_gross,d.name
 FROM Movies m
