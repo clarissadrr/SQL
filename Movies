@@ -1,0 +1,57 @@
+
+
+
+
+CREATE TABLE MOVIES (Movie_id INTEGER PRIMARY KEY,Movie_Name "text",Movie_description "TEXT",Movie_released_year INTEGER,Box_office_gross INTEGER);
+
+INSERT INTO MOVIES VALUES (1,"The Shawshank Redemption", "Two imprisoned men bond over a number of years",1994,28300000);
+INSERT INTO MOVIES VALUES (2,"The Godfather","A powerful italian-american mafia clan and struggle to control their empire",1972,245000000);
+INSERT INTO MOVIES VALUES(3,"The Dark Knight","When the menace known as the Joker wreaks havoc on gotham city",2008,1005000000);
+INSERT INTO MOVIES VALUES(4,"The Lord of the Rings","A young hobbit named Frodo and its journey to destroy a ring",2001,29000000000);
+INSERT INTO MOVIES VALUES( 5,"Pulp Fiction","four interrelated stories about L.A criminal underworld",1994,213900000); 
+INSERT INTO MOVIES VALUES (6,"Forrest Gump"," A low IQ man who becomes involved in several historical events in the U.S",1994,677900000);
+
+CREATE TABLE Genre (Genre_id INTEGER PRIMARY KEY,Genre_name "TEXT",Genre_description "TEXT");
+
+INSERT INTO Genre VALUES (1,"Drama","Dramatic plot");   
+INSERT INTO Genre VALUES( 2,"Crime" ,"Criminal plot");
+INSERT INTO Genre VALUES(3,"Action","Fast-paced plot");
+INSERT INTO Genre VALUES(4,"Adventure","Exciting plot");     
+INSERT INTO Genre VALUES(5,"Thriller","Suspenseful plot");  
+INSERT INTO Genre VALUES(6,"Comedy","Humorous plot");
+
+CREATE TABLE Director (Director_id INTEGER PRIMARY KEY,Name "text", Number_of_films_directed INTEGER,Nationality"TEXT"); 
+
+INSERT INTO Director VALUES (1,"Frank Darabont",6,"American");
+INSERT INTO Director VALUES (2,"Francis Ford Coppola",27,"American");
+INSERT INTO Director VALUES (3,"Cristopher Nolan", 11,"British-American");
+INSERT INTO Director VALUES (4,"Peter Jackson",16,"New Zealand");
+INSERT INTO Director VALUES (5,"Quentin Tarantino",10,"American");
+INSERT INTO Director VALUES (6,"Robert Zemeckis",22,"American");
+
+SELECT m.movie_name,m.movie_released_year,g.genre_name
+FROM Movies m
+JOIN genre g
+ON m.movie_id=g.genre_id;
+
+SELECT m.movie_name,m.movie_description,d.name
+FROM movies m
+JOIN director d 
+ON m.movie_id=d.director_id;
+
+SELECT m.movie_name,m.movie_released_year,g.genre_name,d.name,d.nationality
+FROM movies m 
+JOIN genre g 
+ON m.movie_id=g.genre_id
+JOIN director d
+ON m.movie_id=d.director_id
+ORDER BY movie_released_year ASC;
+
+
+SELECT name,nationality FROM Director WHERE nationality="American";
+
+SELECT m.movie_name,m.Box_office_gross,d.name
+FROM Movies m
+Join Director d
+ON m.movie_id=d.director_id 
+ORDER BY box_office_gross DESC
